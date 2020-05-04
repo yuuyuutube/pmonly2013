@@ -1,0 +1,332 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Slot Machine</title>
+
+<!-- Syntax highlighting, ignore this -->
+<link rel="stylesheet" href="SyntaxHighlighter/Styles/SyntaxHighlighter.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
+<style type="text/css">
+@font-face {
+    font-family: "FAMania";
+    src: url(FAMania2.6.TTF);
+}    
+    
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+body {
+    line-height: 1;
+}
+ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+    outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+    text-decoration: none;
+}
+del {
+    text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/*reset*/
+
+ul {
+    padding: 0;
+    margin: 0 20px;
+    list-style: none;
+}
+
+.jSlots-wrapper {
+    overflow: hidden;
+    height: 20px;
+    display: inline-block; /* to size correctly, can use float too, or width*/
+}
+
+.slot {
+    float: left;
+}
+
+input[type="button"] {
+    font-family: 'FAMania', 'Futura Extra Bold','Impact','Arial Black';
+    display: block;
+    text-align: center;
+    width:300px;
+    padding-top:80px;
+    margin: 0 auto;
+    border: 0;
+    background-color: transparent;
+    color:#fff;
+    font-size:40px;
+}
+#fc2_footer,#fc2_footer span,#fc2_footer a{
+    opacity: 0;
+    display: none;
+}
+
+/* ---------------------------------------------------------------------
+   FANCY EXAMPLE
+--------------------------------------------------------------------- */
+body{
+    text-align: center;
+    background-color: #F7941E;
+    background-image: url("bbg.png");
+    background-position: top;
+    background-repeat: no-repeat;
+}
+#center{
+    width:100%;
+    padding-top:200px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.fancy .jSlots-wrapper {
+    overflow: hidden;
+    height: 300px;
+    display: inline-block; /* to size correctly, can use float too, or width*/
+}
+.fancy .slot li {
+    width: 300px;
+    line-height: 300px;
+    text-align: center;
+    font-size: 210px;
+    font-weight: bold;
+    color: #BE1E2D;
+    text-shadow: 10px 10px 0 rgba(0, 0, 0, 0.6);
+    font-family: 'FAMania', 'Futura Extra Bold','Impact','Arial Black';
+    background-color: white;
+}
+
+.fancy .slot:first-child li {
+    border-left: none;
+}
+
+.fancy .slot li span {
+    display: block;
+}
+
+/* ---------------------------------------------------------------------
+   ANIMATIONS
+--------------------------------------------------------------------- */
+
+@-webkit-keyframes winner {
+        0%, 50%, 100% {
+            -webkit-transform: rotate(0deg);
+            font-size:70px;
+            color: #fff;
+        }
+        25% {
+            -webkit-transform: rotate(20deg);
+            font-size:90px;
+            color: #FF16D8;
+        }
+        75% {
+            -webkit-transform: rotate(-20deg);
+            font-size:90px;
+            color: #FF16D8;
+        }
+}
+@-moz-keyframes winner {
+        0%, 50%, 100% {
+            -moz-transform: rotate(0deg);
+            font-size:70px;
+            color: #fff;
+        }
+        25% {
+            -moz-transform: rotate(20deg);
+            font-size:90px;
+            color: #FF16D8;
+        }
+        75% {
+            -moz-transform: rotate(-20deg);
+            font-size:90px;
+            color: #FF16D8;
+        }
+}
+@-ms-keyframes winner {
+        0%, 50%, 100% {
+            -ms-transform: rotate(0deg);
+            font-size:70px;
+            color: #fff;
+        }
+        25% {
+            -ms-transform: rotate(20deg);
+            font-size:90px;
+            color: #FF16D8;
+        }
+        75% {
+            -ms-transform: rotate(-20deg);
+            font-size:90px;
+            color: #FF16D8;
+        }
+}
+
+
+@-webkit-keyframes winnerBox {
+        0%, 50%, 100% {
+            box-shadow: inset 0 0  0px yellow;
+            background-color: #FF0000;
+        }
+        25%, 75% {
+            box-shadow: inset 0 0 30px yellow;
+            background-color: aqua;
+        }
+}
+@-moz-keyframes winnerBox {
+        0%, 50%, 100% {
+            box-shadow: inset 0 0  0px yellow;
+            background-color: #FF0000;
+        }
+        25%, 75% {
+            box-shadow: inset 0 0 30px yellow;
+            background-color: aqua;
+        }
+}
+@-ms-keyframes winnerBox {
+        0%, 50%, 100% {
+            box-shadow: inset 0 0  0px yellow;
+            background-color: #FF0000;
+        }
+        25%, 75% {
+            box-shadow: inset 0 0 30px yellow;
+            background-color: aqua;
+        }
+}
+
+
+
+.winner li {
+    -webkit-animation: winnerBox 2s infinite linear;
+       -moz-animation: winnerBox 2s infinite linear;
+        -ms-animation: winnerBox 2s infinite linear;
+}
+.winner li span {
+     -webkit-animation: winner 2s infinite linear;
+        -moz-animation: winner 2s infinite linear;
+         -ms-animation: winner 2s infinite linear;
+}
+
+/* Syntax Highlighter, ignore */
+.dp-highlighter ol {
+    padding: 10px;
+}
+
+</style>
+
+
+
+</head>
+<body><div id="center">
+    <div id="wrapper">
+        <div id="content">
+            <div class="fancy">
+                <ul class="slot">
+                    <!-- In reverse order so the 7s show on load -->
+                    <li><span>7</span></li>
+                    <li><span>6</span></li>
+                    <li><span>5</span></li>
+                    <li><span>4</span></li>
+                    <li><span>3</span></li>
+                    <li><span>2</span></li>
+                    <li><span>1</span></li>
+                    <li><span>0</span></li>
+                    <li><span>9</span></li>
+                    <li><span>8</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+                <input type="button" id="playFancy" value="Play" />
+</div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="jquery.easing.1.3.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jquery.jSlots.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+
+        // normal example
+        $('.normal .slot').jSlots({
+            spinner : '#playNormal',
+            winnerNumber : ''
+        });
+
+
+        // fancy example
+        $('.fancy .slot').jSlots({
+            number : 3,
+            winnerNumber : 1,
+            spinner : '#playFancy',
+            easing : 'easeOutSine',
+            time : 7000,
+            loops : 6,
+            onStart : function() {
+                $('.slot').removeClass('winner');
+            },
+            onWin : function(winCount, winners, finalNumbers) {
+                // only fires if you win
+
+                $.each(winners, function() {
+                    this.addClass('winner');
+                });
+
+                // react to the # of winning slots
+                if ( winCount === 1 ) {
+                    //alert('You got ' + winCount + ' 7!!!');
+                } else if ( winCount > 1 ) {
+                    //alert('You got ' + winCount + ' 7’s!!!');
+                }
+
+            }
+        });
+
+
+    </script>
+
+    <!-- Syntax highlighting, ignore this -->
+    <script src="SyntaxHighlighter/Scripts/shCore.js" type="text/javascript" charset="utf-8"></script>
+    <script src="SyntaxHighlighter/Scripts/shBrushCss.js" type="text/javascript" charset="utf-8"></script>
+    <script src="SyntaxHighlighter/Scripts/shBrushJScript.js" type="text/javascript" charset="utf-8"></script>
+    <script src="SyntaxHighlighter/Scripts/shBrushXml.js" type="text/javascript" charset="utf-8"></script>
+    <script language="javascript">
+        dp.SyntaxHighlighter.ClipboardSwf = '/flash/clipboard.swf';
+        dp.SyntaxHighlighter.HighlightAll('code', false, false )//, [collapseAll], [firstLine], [showColumns] );
+        //HighlightAll(name, [showGutter], [showControls], [collapseAll], [firstLine], [showColumns])
+    </script>
+    <!-- /Syntax highlighting -->
+
+</body>
+</html>

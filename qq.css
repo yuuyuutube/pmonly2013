@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+h1{
+	text-indent:-9999px;
+	}
+	
+h2{
+	font-family:"細明體", "新細明體-ExtB";
+	font-size:12px;
+	color:#FFF;
+	text-indent:50px;
+	}
+	
+p{
+	font-family:"細明體", "新細明體-ExtB";
+	font-size:12px;
+	color:#666;
+	line-height:1.5;
+	margin:0;
+	}
+	
+a:link{
+	font-family:"細明體", "新細明體-ExtB";
+	color:#F90;
+	font-size:11px;
+	text-decoration:none;
+	}
+	
+a:visited{
+	font-family:"細明體", "新細明體-ExtB";
+	color:#C03;
+	font-size:11px;
+	text-decoration:blink;
+	}
+	
+a:hover{
+	font-family:"細明體", "新細明體-ExtB";
+	color:#339;
+	font-size:11px;
+	text-decoration:underline;
+	}

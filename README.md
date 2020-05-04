@@ -1,1 +1,3 @@
-# pmonly2013
+---
+permalink: /index.html
+---
